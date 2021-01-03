@@ -21,9 +21,10 @@ const Main = () => {
   const api_call = async e => {
     e.preventDefault()
     const location = e.target.elements.location.value
+    // eslint-disable-next-line no-sequences
     if(!location) return setError("Merci d'entrer le nom d'une ville."), setWeather(null)
     const API_KEY = "3a42a2d988e037e1b4f125b8fc126b74";
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&appid=${API_KEY}&lang=fr`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&&appid=${API_KEY}&lang=fr`;
     const request = axios.get(url);
     const response = await request;
     setWeather(response.data.main);
